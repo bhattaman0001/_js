@@ -1,0 +1,8 @@
+by default javascript is a synchronous, and single threaded language.
+
+
+blocking code -> block the flow of code -> read file synch
+non-blocking code -> does not block the flow of code -> read file async
+
+
+setTimer() and many other execution function
