@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>javascript</title>
+  </head>
+  <body style="background-color: #212121">
+    <div class="card" id="imageCard">
+      <img src="" alt="Avatar Image" />
+      <div class="card_content">
+        <h2></h2>
+        <p></p>
+      </div>
+    </div>
+  </body>
+  <script>
+    const xhr = new XMLHttpRequest();
+    const requestURL = "https://api.github.com/users/bhattaman0001";
+    xhr.open("GET", requestURL);
+    xhr.onreadystatechange = function () {
+      // this is showing the github image and followers in a card
+      const data = JSON.parse(this.responseText);
+      const cardContainer = document.getElementById("imageCard");
+      cardContainer.querySelector("img").src = data.avatar_url;
+      const follower = document.querySelector(".card_content h2");
+      follower.textContent = data.followers;
+      const linkedinUrl = document.querySelector(".card_content p");
+      linkedinUrl.textContent = data.blog;
+    };
+    xhr.send();
+  </script>
+</html>
