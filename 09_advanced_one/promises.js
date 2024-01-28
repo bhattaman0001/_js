@@ -79,11 +79,12 @@
 // }
 // getAllUsers();
 
-new Promise(function (resolve, reject) {
-  resolve(fetch("https://api.github.com/users/bhattaman0001"));
-})
+fetch("https://api.github.com/users/bhattaman0001")
   .then((val) => {
-    console.log(val.json());
+    return val.json();
+  })
+  .then((data) => {
+    console.log(data);
   })
   .catch((error) => {
     console.log(error);
